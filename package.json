@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "dev": "npm run webpack-dev-server -- --env.presets typescript --env.mode development --hot --open",
     "build": "npm run webpack -- --env.presets typescript --env.mode production",
-    "analyze": "npm run build -- --env.presets analyze"
+    "analyze": "npm run build -- --env.presets analyze",
+    "cm": "git-cz"
   },
   "keywords": [
     "ui",
@@ -25,8 +26,10 @@
     "@types/reach__router": "^1.2.6",
     "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
     "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
+    "cz-conventional-changelog": "^3.0.2",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
@@ -53,8 +56,14 @@
   },
   "husky": {
     "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
       "pre-commit": "npm run format && npm run lint && npm run test && npm run build",
       "pre-push": "npm run format && npm run lint && npm run test && npm run build"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
