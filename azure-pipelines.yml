@@ -17,8 +17,30 @@ steps:
 
 - script: |
     npm install
-    npm run format
+  displayName: 'install node modules'
+
+- script: |
     npm run lint
+  displayName: 'ensure no linting issues found'
+
+- script: |
     npm run test
+  displayName: 'ensure tests pass'
+
+- script: |
     npm run build
-  displayName: 'npm install, format, lint, test & build'
+  displayName: 'build project'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: 'dist'
+    contents: '**' 
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    cleanTargetFolder: true 
+  displayName: 'copy built project'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'drop' 
+    publishLocation: 'Container'
