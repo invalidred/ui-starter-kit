@@ -13,7 +13,7 @@
     "dev": "npm run webpack-dev-server -- --env.presets typescript --env.mode development --hot --open",
     "build": "npm run webpack -- --env.presets typescript --env.mode production",
     "analyze": "npm run build -- --env.presets analyze",
-    "cm": "git-cz"
+    "commit": "git-cz"
   },
   "keywords": [
     "ui",
@@ -23,6 +23,8 @@
   "author": "purefacts",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@types/reach__router": "^1.2.6",
     "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^3.0.0",
@@ -56,9 +58,8 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "npm run format && npm run lint && npm run test && npm run build",
-      "pre-push": "npm run format && npm run lint && npm run test && npm run build"
+      "pre-commit": "npm run format && npm run lint && npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "config": {
