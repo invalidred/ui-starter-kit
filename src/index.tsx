@@ -1,22 +1,22 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { Router } from '@reach/router'
-import { Nav } from './components'
-import { Contacts, Dashboard, NotFound } from './pages'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-const Routes = () => (
-  <Router>
-    <Contacts path="/contacts" />
-    <Dashboard path="/dashboard" />
-    <NotFound default={true} />
-  </Router>
-)
+import store from './app/store'
 
-const App = () => (
-  <div>
-    <Nav />
-    <Routes />
-  </div>
-)
+const render = () => {
+  const App = require('./app/App').default
 
-ReactDOM.render(<App />, document.getElementById('root'))
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  )
+}
+
+render()
+
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('./app/App', render)
+}
