@@ -1,28 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import * as api from '../api/requests'
+import { IRequest } from '../api/requests'
 import { AppThunk } from 'app/store'
 import { RootState } from 'app/rootReducer'
 
 interface IRequestState {
   isLoading: boolean
-  requests: api.IRequest[]
+  requests: IRequest[]
   error: string
 }
 
-const initialState: IRequestState = {
+export const initialState: IRequestState = {
   isLoading: false,
   requests: [],
   error: '',
 }
 
-const requestsSlice = createSlice({
+export const requestsSlice = createSlice({
   name: 'requests',
   initialState,
   reducers: {
-    getRequests(state) {
-      state = initialState
+    getRequests() {
+      return initialState
     },
-    getRequestsSuccess(state, action: PayloadAction<api.IRequest[]>) {
+    getRequestsSuccess(state, action: PayloadAction<IRequest[]>) {
       state.isLoading = false
       state.requests = action.payload
       state.error = ''
@@ -43,7 +43,11 @@ const {
 
 export default requestsSlice.reducer
 
-export const fetchRequests = (): AppThunk => async dispatch => {
+export const fetchRequests = (): AppThunk => async (
+  dispatch,
+  getState,
+  api
+) => {
   try {
     dispatch(getRequests())
     const requests = await api.getRequests()
