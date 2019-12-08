@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IRequest } from '../api/requests'
+import { IRequest } from '../api/models'
 import { AppThunk } from 'app/store'
 import { RootState } from 'app/rootReducer'
 
@@ -10,7 +10,7 @@ interface IRequestState {
 }
 
 export const initialState: IRequestState = {
-  isLoading: false,
+  isLoading: true,
   requests: [],
   error: '',
 }

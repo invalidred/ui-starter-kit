@@ -1,4 +1,4 @@
-import { IRequest } from '../api/requests'
+import { IRequest, RequestStatus } from '../api/models'
 
 export const requests: IRequest[] = [
   {
@@ -6,7 +6,7 @@ export const requests: IRequest[] = [
     name: 'Request',
     type: 'Workflow Type1',
     requestor: 'Thomas Battersea',
-    status: 'APPROVED',
+    status: RequestStatus.APPROVED,
     requestedImageUrl: '/src/image',
     assignee: 'Dexter Morgan',
     assigneeImageUrl: '/src/image',
@@ -23,7 +23,7 @@ export const requests: IRequest[] = [
     id: 132,
     name: 'Request Name',
     type: 'Workflow Type1',
-    status: 'REJECTED',
+    status: RequestStatus.COMPLETED,
     requestor: 'Thomas Battersea',
     requestedImageUrl: '/src/image',
     assignee: 'Dexter Morgan',
@@ -41,7 +41,7 @@ export const requests: IRequest[] = [
     id: 152,
     name: 'Suspendisse lobortis magn',
     type: 'Workflow Type1',
-    status: 'COMPLETED',
+    status: RequestStatus.REJECTED,
     requestor: 'Thomas Battersea',
     requestedImageUrl: '/src/image',
     assignee: 'Dexter Morgan',
