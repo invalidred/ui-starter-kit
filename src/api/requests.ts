@@ -1,4 +1,4 @@
-import { IRequest } from './models'
+import { IRequest } from '../models'
 import { requests } from '../fixtures/requests'
 
 // Note we are just simulating API call here

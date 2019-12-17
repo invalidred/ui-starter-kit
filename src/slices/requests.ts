@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IRequest } from '../api/models'
+import { IRequest } from '../models'
 import { AppThunk } from 'app/store'
 import { RootState } from 'app/rootReducer'
+import { useSelector } from 'react-redux'
 
 interface IRequestState {
   isLoading: boolean

@@ -1,4 +1,4 @@
-import { IRequest, RequestStatus } from '../api/models'
+import { IRequest, RequestStatus } from '../models'
 
 export const requests: IRequest[] = [
   {

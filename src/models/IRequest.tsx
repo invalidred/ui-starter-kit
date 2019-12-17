@@ -1,16 +1,6 @@
-export interface IHistory {
-  activity: string
-  date: Date
-  imageUrl: string
-}
+import { RequestStatus, IHistory } from './'
 
-export enum RequestStatus {
-  COMPLETED = 'COMPLETED',
-  APPROVED = 'APPROVED',
-  REJECTED = 'REJECTED',
-}
-
-export interface IRequest {
+export default interface IRequest {
   id: number
   name: string
   type: string

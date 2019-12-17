@@ -2,6 +2,7 @@ import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { defaultTheme, MuiThemeProvider } from 'purewealth-ui'
 
 import store from './app/store'
 
@@ -9,9 +10,11 @@ const render = () => {
   const App = require('./app/App').default
 
   ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
+    <MuiThemeProvider theme={defaultTheme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </MuiThemeProvider>,
     document.getElementById('root')
   )
 }
