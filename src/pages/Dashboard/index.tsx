@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { RouteComponentProps } from '@reach/router'
 
 import {
   requestsSelector,
@@ -8,7 +7,7 @@ import {
   isLoadingSelector,
 } from '../../slices/requests'
 
-const Dashboard = (props: RouteComponentProps) => {
+const Dashboard = () => {
   const dispatch = useDispatch()
   const requests = useSelector(requestsSelector)
   const isLoading = useSelector(isLoadingSelector)

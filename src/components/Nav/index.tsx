@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from '@reach/router'
 import { Box, IconButton, NotificationSVG, SettingSVG } from 'purewealth-ui'
-import { useIntl, FormattedMessage, defineMessages } from 'react-intl'
+import { useIntl } from 'react-intl'
 import purefactsLogo from '../../assets/purefacts-logo.jpg'
 
 const Nav = () => {

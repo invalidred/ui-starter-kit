@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IRequest } from '../models'
 import { AppThunk } from 'app/store'
 import { RootState } from 'app/rootReducer'
-import { useSelector } from 'react-redux'
 
 interface IRequestState {
   isLoading: boolean
@@ -44,11 +43,7 @@ const {
 
 export default requestsSlice.reducer
 
-export const fetchRequests = (): AppThunk => async (
-  dispatch,
-  getState,
-  api
-) => {
+export const fetchRequests = (): AppThunk => async (dispatch, _, api) => {
   try {
     dispatch(getRequests())
     const requests = await api.getRequests()
