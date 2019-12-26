@@ -6,8 +6,10 @@ module.exports = {
     project: ['./tsconfig.json'],
   },
   plugins: [
+    'prettier',
     '@typescript-eslint',
-    'react-hooks'
+    'react-hooks',
+    'jest',
   ],
   extends: [
     'eslint:recommended',
@@ -15,9 +17,11 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier/@typescript-eslint',
-    "plugin:react/recommended"
+    'plugin:react/recommended',
+    'plugin:jest/recommended'
   ],
   rules: {
+    "prettier/prettier": "error",
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',
