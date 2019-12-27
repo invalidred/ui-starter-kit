@@ -1,3 +1,3 @@
-export { default as Contacts } from './Contacts'
-export { default as Dashboard } from './Dashboard'
-export { default as NotFound } from './NotFound'
+export { default as ContactsPage } from './ContactsPage/ContactsPage'
+export { default as DashboardPage } from './DashboardPage/DashboardPage'
+export { default as NotFoundPage } from './NotFoundPage/NotFoundPage'
