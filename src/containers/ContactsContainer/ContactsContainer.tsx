@@ -6,7 +6,7 @@ import {
   fetchRequests,
   isLoadingSelector,
 } from '../../slices/requests'
-import { ContactCard } from '../../components'
+import { ContactCard, ContactCardSkeleton } from '../../components'
 import { Typography } from 'purewealth-ui'
 
 const ContactsContainer = () => {
@@ -27,7 +27,7 @@ const ContactsContainer = () => {
   })
 
   if (isLoading) {
-    return <Typography variant="body1">{translations.isLoading}</Typography>
+    return <ContactCardSkeleton />
   }
 
   if (!contacts) {
