@@ -1,8 +1,6 @@
 import React, { Suspense, lazy } from 'react'
+import { useIntl } from 'react-intl'
 import { Router } from '@reach/router'
-import Layout from '../layouts/HeaderContent'
-
-import { Nav } from '../components'
 
 /** Do not alter import declaration.
  * webpackPrefetch/webpackPreload: magic string to help webpack optimization
@@ -10,35 +8,33 @@ import { Nav } from '../components'
  * webpackChunkName: helps naming code-split chunk
  * Also DO NOT put import() within lazy() as this will break preload/prefetch
  */
-const Contacts = import(
-  /* webpackPrefetch: true, webpackChunkName: "Contacts" */ '../pages/Contacts'
+const ContactsPage = import(
+  /* webpackPrefetch: true, webpackChunkName: "Contacts" */ '../pages/ContactsPage/ContactsPage'
 )
-const LazyContacts = lazy(() => Contacts)
+const LazyContactsPage = lazy(() => ContactsPage)
 
-const Dashboard = import(
-  /* webpackPrefetch: true, webpackChunkName: "Dashboard" */ '../pages/Dashboard'
+const DashboardPage = import(
+  /* webpackPrefetch: true, webpackChunkName: "DashboardPage" */ '../pages/DashboardPage/DashboardPage'
 )
-const LazyDashboard = lazy(() => Dashboard)
+const LazyDashboardPage = lazy(() => DashboardPage)
 
-const NotFound = import(
-  /* webpackPrefetch: true, webpackChunkName: "NotFound" */ '../pages/NotFound'
+const NotFoundPage = import(
+  /* webpackPrefetch: true, webpackChunkName: "NotFoundPage" */ '../pages/NotFoundPage/NotFoundPage'
 )
-const LazyNotFound = lazy(() => NotFound)
+const LazyNotFoundPage = lazy(() => NotFoundPage)
 
-const Routes = () => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <Router>
-      <LazyContacts path="/contacts" />
-      <LazyDashboard path="/dashboard" />
-      <LazyNotFound default={true} />
-    </Router>
-  </Suspense>
-)
-
-const App = () => (
-  <React.Fragment>
-    <Layout header={<Nav />} content={<Routes />} />
-  </React.Fragment>
-)
+const App = () => {
+  const { formatMessage } = useIntl()
+  const isLoading = formatMessage({ id: 'common.isLoading' })
+  return (
+    <Suspense fallback={<div>{isLoading}</div>}>
+      <Router>
+        <LazyContactsPage path="/contacts" />
+        <LazyDashboardPage path="/dashboard" />
+        <LazyNotFoundPage default={true} />
+      </Router>
+    </Suspense>
+  )
+}
 
 export default App
