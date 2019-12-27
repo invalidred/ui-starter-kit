@@ -19,7 +19,7 @@ const render = () => {
   const App = require('./app/App').default
 
   ReactDOM.render(
-    <IntlProvider locale={language} messages={messages.fr}>
+    <IntlProvider locale={language} messages={messages[language]}>
       <MuiThemeProvider theme={defaultTheme}>
         <Provider store={store}>
           <App />
