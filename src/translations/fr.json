@@ -1,5 +1,12 @@
 {
-  "nav.logo": "Purefacts Logo - fr",
-  "nav.notification": "Notification - fr",
-  "nav.dashboard": "Dashboard - fr"
+  "common.isLoading": "fr - Is Loading...",
+  "nav.logo": "fr - Purefacts Logo",
+  "nav.notification": "fr - Notification",
+  "nav.dashboard": "fr - Dashboard",
+  "notfound.header": "fr - Page not found",
+  "notfound.message": "fr - Please trying clicking the back button or on of the elements in the nav items above",
+  "dashboard.header": "ui-starter-kit",
+  "dashboard.message": "fr - Please use this repo as a guideline to spawn up new UI projects going forward. Please try and avoid creating SNOW FLAKE U+2744 solutions by first updating the `ui-starter-kit` before changing core implementation in your instance projects. This includes things such as replacing exisiting libraries with other ones for whatever reason. Think about scale and other devs who have to switch between projects. The goal is to have a seamless DX while switching between projects.",
+  "contacts.header": "fr - Async example",
+  "contacts.empty": "fr - No Contacts Available"
 }

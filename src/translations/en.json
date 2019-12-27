@@ -1,5 +1,12 @@
 {
+  "common.isLoading": "Is Loading...",
   "nav.logo": "Purefacts Logo",
   "nav.notification": "Notification",
-  "nav.dashboard": "Dashboard"
+  "nav.dashboard": "Dashboard",
+  "notfound.header": "Page Not Found!",
+  "notfound.message": "Please trying hitting the back button. You may also click one of the elements in the nav items above",
+  "dashboard.header": "ui-starter-kit",
+  "dashboard.message": "Please use this repo as a guideline to spawn up new UI projects going forward. Please try and avoid creating SNOW FLAKE ❄️ solutions by first updating the `ui-starter-kit` before changing core implementation in your instance projects. This includes things such as replacing exisiting libraries with other ones for whatever reason. Think about scale and other devs who have to switch between projects. The goal is to have a seamless DX while switching between projects.",
+  "contacts.header": "Async example",
+  "contacts.empty": "No Contacts Available"
 }
