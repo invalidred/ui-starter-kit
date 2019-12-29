@@ -6,7 +6,7 @@ import { defaultTheme, MuiThemeProvider } from 'purewealth-ui'
 import { IntlProvider } from 'react-intl'
 import messagesFr from './translations/fr.json'
 import messagesEn from './translations/en.json'
-import store from './app/store'
+import { getStore } from './app/store'
 
 const messages: Record<string, Record<string, string>> = {
   en: messagesEn,
@@ -21,7 +21,7 @@ const render = () => {
   ReactDOM.render(
     <IntlProvider locale={language} messages={messages[language]}>
       <MuiThemeProvider theme={defaultTheme}>
-        <Provider store={store}>
+        <Provider store={getStore()}>
           <App />
         </Provider>
       </MuiThemeProvider>
