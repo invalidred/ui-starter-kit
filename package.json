@@ -6,8 +6,8 @@
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",
     "webpack": "webpack",
-    "test": "npx jest --env=jsdom",
-    "test:watch": "npx jest --env=jsdom --watch",
+    "test": "npx jest --env=jsdom --coverage",
+    "test:watch": "npm run test -- --watch",
     "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "typecheck": "tsc --noEmit",
