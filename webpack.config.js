@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackMerge = require('webpack-merge')
 
@@ -29,6 +30,7 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
       output: {
         filename: 'bundle.js',
         chunkFilename: '[name].lazy-chunk.js',
+        path: path.resolve(__dirname, 'build')
       },
       plugins: [
         new HtmlWebpackPlugin({
