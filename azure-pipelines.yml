@@ -33,7 +33,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: 'dist'
+    sourceFolder: 'build'
     contents: '**' 
     targetFolder: $(Build.ArtifactStagingDirectory)
     cleanTargetFolder: true 
