@@ -1,6 +1,10 @@
 import React, { Suspense, lazy } from 'react'
 import { useIntl } from 'react-intl'
-import { Router } from '@reach/router'
+import { Router, RouteComponentProps } from '@reach/router'
+
+export const RouterPage = (
+  props: { pageComponent: JSX.Element } & RouteComponentProps
+) => props.pageComponent
 
 /** Do not alter import declaration.
  * webpackPrefetch/webpackPreload: magic string to help webpack optimization
@@ -29,9 +33,9 @@ const App = () => {
   return (
     <Suspense fallback={<div>{isLoading}</div>}>
       <Router>
-        <LazyContactsPage path="/contacts" />
-        <LazyDashboardPage path="/dashboard" />
-        <LazyNotFoundPage default={true} />
+        <RouterPage path="/contacts" pageComponent={<LazyContactsPage />} />
+        <RouterPage path="/dashboard" pageComponent={<LazyDashboardPage />} />
+        <RouterPage default={true} pageComponent={<LazyNotFoundPage />} />
       </Router>
     </Suspense>
   )

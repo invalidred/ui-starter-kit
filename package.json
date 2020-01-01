@@ -8,7 +8,7 @@
     "webpack": "webpack",
     "test": "npx jest --env=jsdom --coverage",
     "test:watch": "npm run test -- --watch",
-    "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx && npx tsc --noEmit",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "dev": "npm run webpack-dev-server -- --env.presets typescript --env.mode development --hot --open --historyApiFallback --content-base src/assets ",
